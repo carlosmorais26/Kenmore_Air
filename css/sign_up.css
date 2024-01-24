@@ -1,0 +1,25 @@
+/*begin of nav bar*/
+.navbar-brand{
+    margin-left: 5px;
+}
+/*begin of body*/
+body{
+    background-color: snow;
+}
+/*begin of form*/
+
+/*begin of footer*/
+
+.container{
+    margin-right: auto;
+    margin-left: 15px;
+    margin-bottom: auto;
+
+}
+.nav-link{
+    font-size: larger;
+}
+.navbar-nav a{
+    text-decoration: none;
+    color: black;
+}

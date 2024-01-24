@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Form</title>
+</head>
+<body>
+
+    <form id="flightForm">
+        <!-- Your form fields go here -->
+        <label for="flightNumber">Flight Number:</label>
+        <input type="text" id="flightNumber" name="flightNumber" required>
+
+        <label for="departureDate">Departure Date:</label>
+        <input type="date" id="departureDate" name="departureDate" required>
+
+        <!-- Add more fields as needed -->
+
+        <button type="button" onclick="saveFlight()">Save Flight</button>
+    </form>
+
+    <table id="flightTable">
+        <!-- The table where the saved flights will be displayed -->
+        <thead>
+            <tr>
+                <th>Flight Number</th>
+                <th>Departure Date</th>
+                <!-- Add more headers as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Saved flights will be displayed here -->
+        </tbody>
+    </table>
+
+    <script>
+        function saveFlight() {
+            // Get form values
+            var flightNumber = document.getElementById('flightNumber').value;
+            var departureDate = document.getElementById('departureDate').value;
+
+            // Create a new row in the table
+            var table = document.getElementById('flightTable');
+            var newRow = table.insertRow(table.rows.length);
+
+            // Insert data into the new row
+            var cell1 = newRow.insertCell(0);
+            cell1.innerHTML = flightNumber;
+
+            var cell2 = newRow.insertCell(1);
+            cell2.innerHTML = departureDate;
+
+            // Add more cells as needed for additional form fields
+
+            // Clear the form fields
+            document.getElementById('flightForm').reset();
+        }
+    </script>
+
+</body>
+</html>
+
+
+</body>
+</html>
