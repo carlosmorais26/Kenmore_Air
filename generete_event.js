@@ -36,8 +36,8 @@ document.getElementById('Outbound-passengers-button').addEventListener('click', 
     // Get the input element
     var passengersInput = document.getElementById('Outbound-passengers');
   
-    // Generate a random number of passengers between 1 and 4
-    var numPassengers = Math.floor(Math.random() * 3 ) + 2;
+    // Generate a random number of passengers between 5 and 8
+    var numPassengers = Math.floor(Math.random() * 4 ) + 5;
   
     // Generate a string to store passenger information
     var passengersString = "";
@@ -60,8 +60,8 @@ document.getElementById('Arrival-passengers-button').addEventListener('click', f
   // Get the input element
   var passengersInput = document.getElementById('Arrival-passengers');
 
-  // Generate a random number of passengers between 1 and 4
-  var numPassengers = Math.floor(Math.random() * 3 ) + 2;
+  // Generate a random number of passengers between 5 and 8
+  var numPassengers = Math.floor(Math.random() * 4 ) + 5;
 
   // Generate a string to store passenger information
   var passengersString = "";

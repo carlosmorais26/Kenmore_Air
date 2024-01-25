@@ -1,4 +1,11 @@
 // script.js
+var flight_list = []
+flight_list["Departure"] = []
+flight_list["Outbound"] = []
+flight_list["Arrival"] = []
+
+
+
 function saveFlight() {
     // Get form values
     var flightNumber = document.getElementById('flightNumber').value;
