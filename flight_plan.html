@@ -157,6 +157,22 @@
         <button class="btn btn-warning" type="button" id="Arrival-cargo-button">generate</button>
       </div>
 
+      <div class="col-md-3" id="Departure-Fuel-div" style="margin-left: 15px; margin-right: 100px ;">
+        <label for="Arrival-cargo" id="Departure-Fuel-label" class="form-label">Departure-Fuel</label>
+        <input type="text" class="form-control" id="Departure-Fuel" aria-describedby="Departure-Fuel" required>
+        <div id="Departure-Fuel-feedback" class="invalid-feedback">
+          Please put the Departure Fuel in Gal
+        </div>
+      </div>
+
+      <div class="col-md-3" id="Outbound-Fuel-div" style="margin-left: 15px; margin-right: 115px ;">
+        <label for="Outbound-Fuel" id="Outbound-Fuel-label" class="form-label">Outbound-Fuel</label>
+        <input type="text" class="form-control" id="Outbound-Fuel" aria-describedby="Outbound-Fuel" required>
+        <div id="cargo-feedback" class="invalid-feedback">
+          Please put the Outbound Fuel in Gal
+        </div>
+      </div>
+
       <script src="generete_event.js"></script>
       
       <div class="col-md-3" id="Departure-Startup">
@@ -175,7 +191,7 @@
         </div>
       </div>
 
-      <div class="col-md-3" id="Outbound-Arrival-Time" style="margin-left: 15px;  margin-right: 100px ;">
+      <div class="col-md-3" id="Outbound-Arrival-Time" style="margin-left: 110px;  margin-right: auto;">
         <label for="cargo" id="Outbound-Arrival-Time-label" class="form-label">Outbound Time Arrival</label>
         <input type="time" class="form-control" id="Outbound-Arrival-Time-input" aria-describedby="Outbound-Arrival-Time" required>
         <div id="Departure-time-feedback" class="invalid-feedback">
@@ -199,7 +215,7 @@
         </div>
       </div>
 
-      <div class="col-md-3" id="Outbound-Departure-Time" style="margin-left: 15px;  margin-right: 100px ;">
+      <div class="col-md-3" id="Outbound-Departure-Time" style="margin-left: 110px;  margin-right: auto;">
         <label for="cargo" id="Outbound-Departure-Time-label" class="form-label">Outbound Departure Time</label>
         <input type="time" class="form-control" id="Outbound-Departure-Time-input" aria-describedby="Outbound-Departure-Time" required>
         <div id="Outbound-Departure-Time-feedback" class="invalid-feedback">
@@ -223,7 +239,7 @@
         </div>
       </div>
 
-      <div class="col-md-3" id="Flight-date" style="margin-left: 15px;">
+      <div class="col-md-3" id="Flight-date" style="margin-left: 110px;  margin-right: auto;">
         <label for="cargo" id="Flight-label" class="form-label">Flight Date</label>
         <input type="date" class="form-control" id="date" aria-describedby="Flight-date" required>
         <div id="Flight-date-feedback" class="invalid-feedback">
