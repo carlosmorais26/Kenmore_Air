@@ -1,66 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flight Form</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passenger and Cargo Generator</title>
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-    <form id="flightForm">
-        <!-- Your form fields go here -->
-        <label for="flightNumber">Flight Number:</label>
-        <input type="text" id="flightNumber" name="flightNumber" required>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3" style="margin-left: 115px;">
+      <label for="Arrival-passengers" class="form-label">Arrival Passengers and Their Weight</label>
+      <input type="text" class="form-control disabled" id="Arrival-passengers" aria-describedby="passengers" required>
+      <div id="validationServer05Feedback" class="invalid-feedback">
+        Please generate the number of passengers and their weight
+      </div>
+      <button class="btn btn-warning" type="button" id="Arrival-passengers-button">Generate</button>
+    </div>
+    <div class="col-md-3" id="cargo-div">
+      <label for="Outbound-cargo" id="Outbound-cargo-label" class="form-label">Outbound-cargo</label>
+      <input type="text" class="form-control" id="Outbound-cargo" aria-describedby="cargo" required>
+      <div id="cargo-feedback" class="invalid-feedback">
+        Please generate the number of cargo lbs
+      </div>
+      <button class="btn btn-warning" type="button" id="Outbound-cargo-button">Generate</button>
+    </div>
+  </div>
+</div>
 
-        <label for="departureDate">Departure Date:</label>
-        <input type="date" id="departureDate" name="departureDate" required>
+<script>
+document.getElementById('Arrival-passengers-button').addEventListener('click', function() {
+  const z = 692; // Max cargo hold weight
 
-        <!-- Add more fields as needed -->
+  // Generate random number of passengers between 2 and 4
+  const numPassengers = Math.floor(Math.random() * 3) + 2;
 
-        <button type="button" onclick="saveFlight()">Save Flight</button>
-    </form>
+  // Generate random weight for passengers within cargo hold limit
+  let totalPassengerWeight = 0;
+  for (let i = 0; i < numPassengers; i++) {
+    const passengerWeight = Math.random() * 250; // Max weight per passenger
+    if (totalPassengerWeight + passengerWeight <= z) {
+      totalPassengerWeight += passengerWeight;
+    } else {
+      break; // Stop adding passengers if cargo hold limit is reached
+    }
+  }
 
-    <table id="flightTable">
-        <!-- The table where the saved flights will be displayed -->
-        <thead>
-            <tr>
-                <th>Flight Number</th>
-                <th>Departure Date</th>
-                <!-- Add more headers as needed -->
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Saved flights will be displayed here -->
-        </tbody>
-    </table>
+  // Update input field with generated passengers and their weight
+  document.getElementById('Arrival-passengers').value = `${numPassengers} passengers, Total Weight: ${totalPassengerWeight.toFixed(2)} lbs`;
+});
 
-    <script>
-        function saveFlight() {
-            // Get form values
-            var flightNumber = document.getElementById('flightNumber').value;
-            var departureDate = document.getElementById('departureDate').value;
+document.getElementById('Outbound-cargo-button').addEventListener('click', function() {
+  const x = 6702; // Aircraft with fuel + pilot weight
+  const y = 7394; // Max take off weight
 
-            // Create a new row in the table
-            var table = document.getElementById('flightTable');
-            var newRow = table.insertRow(table.rows.length);
+  // Get total weight of passengers
+  const passengersWeight = parseFloat(document.getElementById('Arrival-passengers').value.split(':')[1].split('lbs')[0]);
 
-            // Insert data into the new row
-            var cell1 = newRow.insertCell(0);
-            cell1.innerHTML = flightNumber;
+  // Calculate outbound cargo weight
+  const outboundCargoWeight = y - (x + passengersWeight);
 
-            var cell2 = newRow.insertCell(1);
-            cell2.innerHTML = departureDate;
-
-            // Add more cells as needed for additional form fields
-
-            // Clear the form fields
-            document.getElementById('flightForm').reset();
-        }
-    </script>
-
-</body>
-</html>
-
+  // Update input field with generated cargo weight
+  document.getElementById('Outbound-cargo').value = `${outboundCargoWeight.toFixed(2)} lbs`;
+});
+</script>
 
 </body>
 </html>
