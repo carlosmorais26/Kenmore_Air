@@ -1,71 +1,299 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Passenger and Cargo Generator</title>
-<!-- Bootstrap CSS -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kenmore Airline - home page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+     rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <script src="generete_event.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/flight_plan.css'>
 </head>
-<body>
+  <body>
+    <!-- begin of nav bar-->
+    <nav class="navbar navbar-expand-sm bg-warning">
+      <div class="container-fluid">
 
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-3" style="margin-left: 115px;">
-      <label for="Arrival-passengers" class="form-label">Arrival Passengers and Their Weight</label>
-      <input type="text" class="form-control disabled" id="Arrival-passengers" aria-describedby="passengers" required>
-      <div id="validationServer05Feedback" class="invalid-feedback">
-        Please generate the number of passengers and their weight
+        <a href="home.html"> <img src="img/Kenmore_Air_logo.svg.png" width="142" style="margin-left: 15px;" ></a>
+          
+        <button class="navbar-toggler" data-toggle="collapse"data-target="#navegacao">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+          <div class="collapse navbar-collapse " style="justify-content: end;" id="navegacao">
+          <ul class="nav" style="justify-content: end;">
+            <li class="nav-item ">
+              <a class="nav-link justify-content-end text-black" aria-current="page" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link justify-content-end text-black" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link justify-content-end text-black" href="logbok.html">Logbook</a>
+            </li>
+            <li class="nav-item justify-content-end">
+              <a class="nav-link justify-content-end text-black active" href="flight_plan.html">Flight Plan</a>
+            </li>
+            <li class="nav-item justify-content-end">
+                <a href="account.html" class="btn btn-outline-dark ml-4">Account</a>
+            </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+      <!-- end of nav bar-->
+
+   <!-- begin of form-->
+   <form class="row g-3 was-validated">  
+     
+    <div class="col-lg-4">
+        <label for="Departure" id="Departure-label" class="form-label">Departure</label>
+        <select id="Departure" class="form-select" required aria-label="Departure">
+          <option value="">Click on button To generate Departure</option>
+          <option value="1">PANC - Anchorage - Ted Stevens Anchorage International Airport</option>
+          <option value="2">PAUN - Unalakleet - Unalakleet Airport</option>
+          <option value="3">PADQ - Kodiak - Benny Benson State Airport</option>
+          <option value="4">PABR - Barrow - Wiley Post–Will Rogers International Airport </option>
+          <option value="5">PASC - Deadhorse - Deadhorse Airport </option>
+          <option value="6">PAHO - Homer - Homer Airport </option>
+          <option value="7">PAIN - McKinley National Park Airport(Denali)</option>
+          <option value="8">PAEN - Kenai - Kenai Municipal Airport </option>
+          <option value="9">PANI - Aniak - Aniak Airpor </option>
+          <option value="10">PADU - Unalaska(dutch harbor) - Unalaska Airport</option>
+          <option value="11">PAFA - Fairbanks - Fairbanks International Airport</option>
+          <option value="12">PAVD - Valdez - Valdez Pioneer Field</option>
+          <option value="13">PBET - Bethel - Bethel Airport </option>
+          <option value="14">PFYU - Fort Yukon - Fort Yukon Airport</option>
+          <option value="15">PAGA - Galena - Edward G. Pitka Sr. Airport</option>
+        </select>
+        <div class="invalid-feedback" id="Departure-feedback">Please Select Your Departure</div>
       </div>
-      <button class="btn btn-warning" type="button" id="Arrival-passengers-button">Generate</button>
-    </div>
-    <div class="col-md-3" id="cargo-div">
-      <label for="Outbound-cargo" id="Outbound-cargo-label" class="form-label">Outbound-cargo</label>
-      <input type="text" class="form-control" id="Outbound-cargo" aria-describedby="cargo" required>
-      <div id="cargo-feedback" class="invalid-feedback">
-        Please generate the number of cargo lbs
+     
+      <div class="col-md-4">
+        <label for="Outbound" class="form-label">Outbound</label>
+        <select id="Outbound" class="form-select" required aria-label="Outbound">
+          <option value="">Click on button To generate Outbound</option>
+          <option value="1">PANC - Anchorage - Ted Stevens Anchorage International Airport</option>
+          <option value="2">PAUN - Unalakleet - Unalakleet Airport</option>
+          <option value="3">PADQ - Kodiak - Benny Benson State Airport</option>
+          <option value="4">PABR - Barrow - Wiley Post–Will Rogers International Airport </option>
+          <option value="5">PASC - Deadhorse - Deadhorse Airport </option>
+          <option value="6">PAHO - Homer - Homer Airport </option>
+          <option value="7">PAIN - McKinley National Park Airport(Denali)</option>
+          <option value="8">PAEN - Kenai - Kenai Municipal Airport </option>
+          <option value="9">PANI - Aniak - Aniak Airpor </option>
+          <option value="10">PADU - Unalaska(dutch harbor) - Unalaska Airport</option>
+          <option value="11">PAFA - Fairbanks - Fairbanks International Airport</option>
+          <option value="12">PAVD - Valdez - Valdez Pioneer Field</option>
+          <option value="13">PBET - Bethel - Bethel Airport </option>
+          <option value="14">PFYU - Fort Yukon - Fort Yukon Airport</option>
+          <option value="15">PAGA - Galena - Edward G. Pitka Sr. Airport</option>
+        </select>
+        <div class="invalid-feedback">Please Generate Your Outbound</div>
+        <button class="btn btn-warning" type="button" id="Outbound-button">generate</button>
       </div>
-      <button class="btn btn-warning" type="button" id="Outbound-cargo-button">Generate</button>
-    </div>
-  </div>
-</div>
+     
+      <div class="col-md-4">
+        <label for="Arrival" class="form-label">Arrival</label>
+        <select id="Arrival" class="form-select" required aria-label="Arrival">
+          <option value="">Click on button To generate Arrival</option>
+          <option value="1">PANC - Anchorage - Ted Stevens Anchorage International Airport</option>
+          <option value="2">PAUN - Unalakleet - Unalakleet Airport</option>
+          <option value="3">PADQ - Kodiak - Benny Benson State Airport</option>
+          <option value="4">PABR - Barrow - Wiley Post–Will Rogers International Airport </option>
+          <option value="5">PASC - Deadhorse - Deadhorse Airport </option>
+          <option value="6">PAHO - Homer - Homer Airport </option>
+          <option value="7">PAIN - McKinley National Park Airport(Denali)</option>
+          <option value="8">PAEN - Kenai - Kenai Municipal Airport </option>
+          <option value="9">PANI - Aniak - Aniak Airpor </option>
+          <option value="10">PADU - Unalaska(dutch harbor) - Unalaska Airport</option>
+          <option value="11">PAFA - Fairbanks - Fairbanks International Airport</option>
+          <option value="12">PAVD - Valdez - Valdez Pioneer Field</option>
+          <option value="13">PBET - Bethel - Bethel Airport </option>
+          <option value="14">PFYU - Fort Yukon - Fort Yukon Airport</option>
+          <option value="15">PAGA - Galena - Edward G. Pitka Sr. Airport</option>
+        </select>
+        <div class="invalid-feedback">Please Generate Your Arrival</div>
+        <button class="btn btn-warning" type="button" id="Arrival-button">generate</button>
+      </div>
+      
+     
+      <div class="col-md-3" style="margin-left:15px ;">
+        <label for="Outbound-passengers" class="form-label">Outbound Passengers and Their Weight</label>
+        <input type="text" class="form-control disabled" id="Outbound-passengers" aria-describedby="passengers" required>
+        <div id="validationServer05Feedback" class="invalid-feedback">
+          Please generate the number of passengers and their weight
+        </div>
+        <button class="btn btn-warning" type="button" id="Outbound-passengers-button">Generate</button>
+      </div>
+     
+      <div class="col-md-3" style="margin-left: 115px;">
+        <label for="Arrival-passengers" class="form-label">Arrival Passengers and Their Weight</label>
+        <input type="text" class="form-control disabled" id="Arrival-passengers" aria-describedby="passengers" required>
+        <div id="validationServer05Feedback" class="invalid-feedback">
+          Please generate the number of passengers and their weight
+        </div>
+        <button class="btn btn-warning" type="button" id="Arrival-passengers-button">Generate</button>
+      </div>
+  
+      
+      <div class="col-md-3" id="cargo-div">
+        <label for="Outbound-cargo" id="Outbound-cargo-label" class="form-label">Outbound-cargo</label>
+        <input type="text" class="form-control" id="Outbound-cargo" aria-describedby="cargo" required>
+        <div id="cargo-feedback" class="invalid-feedback">
+          Please generate the number cargo lbs
+        </div>
+        <button class="btn btn-warning" type="button" id="Outbound-cargo-button">generate</button>
+      </div>
 
-<script>
-document.getElementById('Arrival-passengers-button').addEventListener('click', function() {
-  const z = 692; // Max cargo hold weight
+      <div class="col-md-3" id="cargo-div" style="margin-left: 15px; margin-right: 100px ;">
+        <label for="Arrival-cargo" id="cargo-label" class="form-label">Arrival-cargo</label>
+        <input type="text" class="form-control" id="Arrival-cargo" aria-describedby="cargo" required>
+        <div id="cargo-feedback" class="invalid-feedback">
+          Please generate the number cargo lbs
+        </div>
+        <button class="btn btn-warning" type="button" id="Arrival-cargo-button">generate</button>
+      </div>
 
-  // Generate random number of passengers between 2 and 4
-  const numPassengers = Math.floor(Math.random() * 3) + 2;
+      <div class="col-md-3" id="Departure-Fuel-div" style="margin-left: 15px; margin-right: 100px ;">
+        <label for="Arrival-cargo" id="Departure-Fuel-label" class="form-label">Departure-Fuel</label>
+        <input type="text" class="form-control" id="Departure-Fuel" aria-describedby="Departure-Fuel" required>
+        <div id="Departure-Fuel-feedback" class="invalid-feedback">
+          Please put the Departure Fuel in Gal
+        </div>
+      </div>
 
-  // Generate random weight for passengers within cargo hold limit
-  let totalPassengerWeight = 0;
-  for (let i = 0; i < numPassengers; i++) {
-    const passengerWeight = Math.random() * 250; // Max weight per passenger
-    if (totalPassengerWeight + passengerWeight <= z) {
-      totalPassengerWeight += passengerWeight;
-    } else {
-      break; // Stop adding passengers if cargo hold limit is reached
-    }
-  }
+      <div class="col-md-3" id="Outbound-Fuel-div" style="margin-left: 15px; margin-right: 115px ;">
+        <label for="Outbound-Fuel" id="Outbound-Fuel-label" class="form-label">Outbound-Fuel</label>
+        <input type="text" class="form-control" id="Outbound-Fuel" aria-describedby="Outbound-Fuel" required>
+        <div id="cargo-feedback" class="invalid-feedback">
+          Please put the Outbound Fuel in Gal
+        </div>
+      </div>
 
-  // Update input field with generated passengers and their weight
-  document.getElementById('Arrival-passengers').value = `${numPassengers} passengers, Total Weight: ${totalPassengerWeight.toFixed(2)} lbs`;
-});
+      <script src="teste.js"></script>
+      
+      <div class="col-md-3" id="Departure-Startup">
+        <label for="cargo" id="Departure-StartUp-label" class="form-label">Departure  Star-Up Time</label>
+        <input type="time" class="form-control" id="Departure-Startup-time" aria-describedby="Departure-time" required>
+        <div id="Departure-Startup-feedback" class="invalid-feedback">
+          Please put the  Departure Start-UP Time
+        </div>
+      </div>
 
-document.getElementById('Outbound-cargo-button').addEventListener('click', function() {
-  const x = 6702; // Aircraft with fuel + pilot weight
-  const y = 7394; // Max take off weight
+      <div class="col-md-3" id="Departure-time">
+        <label for="cargo" id="Departure-time-label" class="form-label">Departure Time</label>
+        <input type="time" class="form-control" id="Departure-time-input" aria-describedby="Departure-time" required>
+        <div id="Departure-time-feedback" class="invalid-feedback">
+          Please put the Departure Time
+        </div>
+      </div>
 
-  // Get total weight of passengers
-  const passengersWeight = parseFloat(document.getElementById('Arrival-passengers').value.split(':')[1].split('lbs')[0]);
+      <div class="col-md-3" id="Outbound-Arrival-Time" style="margin-left: 110px;  margin-right: auto;">
+        <label for="cargo" id="Outbound-Arrival-Time-label" class="form-label">Outbound Time Arrival</label>
+        <input type="time" class="form-control" id="Outbound-Arrival-Time-input" aria-describedby="Outbound-Arrival-Time" required>
+        <div id="Departure-time-feedback" class="invalid-feedback">
+          Please put the Outbound Time Arrival
+        </div>
+      </div>
 
-  // Calculate outbound cargo weight
-  const outboundCargoWeight = y - (x + passengersWeight);
+      <div class="col-md-3" id="Outbound-EngineOff">
+        <label for="cargo" id="Outbound-EngineOff-Time-label" class="form-label">Outbound Time Engine Off</label>
+        <input type="time" class="form-control" id="Outbound-EngineOff-Time-input" aria-describedby="Outbound-EngineOff-Time" required>
+        <div id="Outbound-EngineOff-feedback" class="invalid-feedback">
+          Please put the Outbound Engine Off Time
+        </div>
+      </div>
 
-  // Update input field with generated cargo weight
-  document.getElementById('Outbound-cargo').value = `${outboundCargoWeight.toFixed(2)} lbs`;
-});
-</script>
+      <div class="col-md-3" id="Outbound-StartUp-Time">
+        <label for="cargo" id="Outbound-StartUp-Time-label" class="form-label">Outbound Start-UP Time</label>
+        <input type="time" class="form-control" id="Outbound-StartUp-Time-input" aria-describedby="Outbound-StartUp-Time" required>
+        <div id="Outbound-StartUp-time-feedback" class="invalid-feedback">
+          Please put the Outbound Start-Up Time
+        </div>
+      </div>
+
+      <div class="col-md-3" id="Outbound-Departure-Time" style="margin-left: 110px;  margin-right: auto;">
+        <label for="cargo" id="Outbound-Departure-Time-label" class="form-label">Outbound Departure Time</label>
+        <input type="time" class="form-control" id="Outbound-Departure-Time-input" aria-describedby="Outbound-Departure-Time" required>
+        <div id="Outbound-Departure-Time-feedback" class="invalid-feedback">
+          Please put the Outbound Departure Time
+        </div>
+      </div>
+
+      <div class="col-md-3" id="Arrival-Time">
+        <label for="cargo" id="Arrival-Time-label" class="form-label">Arrival Time</label>
+        <input type="time" class="form-control" id="OArrival-Time-input" aria-describedby="Arrival-Time" required>
+        <div id="Arrival-time-feedback" class="invalid-feedback">
+          Please put the Time of the Arrival
+        </div>
+      </div>
+
+      <div class="col-md-3" id="Arrival-EngineOff">
+        <label for="cargo" id="EngineOff-Arrival-Time-label" class="form-label">Arrival Engine Off Time </label>
+        <input type="time" class="form-control" id="EngineOff-Arrival-Time-input" aria-describedby="Outbound-Arrival-Time" required>
+        <div id="Arrival-EngineOff-time-feedback" class="invalid-feedback">
+          Please put the Outbound Arrival Engine Off
+        </div>
+      </div>
+
+      <div class="col-md-3" id="Flight-date" style="margin-left: 110px;  margin-right: auto;">
+        <label for="cargo" id="Flight-label" class="form-label">Flight Date</label>
+        <input type="date" class="form-control" id="date" aria-describedby="Flight-date" required>
+        <div id="Flight-date-feedback" class="invalid-feedback">
+          Please put the Flight date
+        </div>
+      </div>
+
+      
+      <div class="col-12">
+        <button class="btn btn-warning" type="button" id="save-button">Save Flight</button>
+      </div>
+      <script src="./js/save_flight.js"></script>
+    </form>
+
+
+<!-- end of form-->
+   <!-- begin of footer-->   
+      <footer class="bg-warning" style="margin-top:10px;padding-bottom: 50px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2">
+             <a href="home.html"> <img src="img/Kenmore_Air_logo.svg.png" width="200" style="margin-top:25px;margin-left: 35px;"></a>
+            </div>
+
+            <div class="col-md-2" style="margin-left: 255px; margin-top: 10px;">
+              <h4>Company</h4>
+              <ul class="navbar-nav" >
+                <li><a href="./about.html">About</a></li>
+                <li><a href="">Jobs</a></li>
+                <li><a href="">News</a></li>
+              </ul>
+            </div>
+
+            <div class="col-md-2"style= "margin-top: 10px;" style="text-decoration: none;">
+              <h4>Communits</h4>
+              <ul class="navbar-nav">
+                <li><a  href="https://www.faa.gov/">FAA</a></li>
+                <li><a  href="https://www.icao.int/Pages/default.aspx">ICAO</a></li>
+              </ul>
+            </div>
+
+            <div class="col-md-2" style= "margin-top: 10px;">
+              <h4>Help</h4>
+              <ul class="navbar-nav">
+                <li><a href="">Help</a></li>
+                <li><a href="">IT Help Desk</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </footer>
+       <!--end of footer--> 
+
 
 </body>
 </html>
