@@ -91,7 +91,7 @@ document.getElementById('Outbound-cargo-button').addEventListener('click', funct
   const y = 7394; // Max take off weight
 
   // Get total weight of passengers
-  const passengersWeight = parseFloat(document.getElementById('Arrival-passengers').value.split(':')[1].split('lbs')[0]);
+  const passengersWeight = parseFloat(document.getElementById('Outbound-passengers').value.split(':')[1].split('lbs')[0]);
 
   // Calculate outbound cargo weight
   const outboundCargoWeight = y - (x + passengersWeight);
