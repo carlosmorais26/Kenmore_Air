@@ -112,10 +112,10 @@ document.getElementById('Arrival-cargo-button').addEventListener('click', functi
   const passengersWeight = parseFloat(document.getElementById('Arrival-passengers').value.split(':')[1].split('lbs')[0]);
 
   // Calculate outbound cargo weight
-  const outboundCargoWeight = y - (x + passengersWeight);
+  const ArrivalCargoWeight = y - (x + passengersWeight);
 
   // Update input field with generated cargo weight
-  document.getElementById('Arrival-cargo').value = `${outboundCargoWeight.toFixed(2)} lbs`;
+  document.getElementById('Arrival-cargo').value = `${ArrivalCargoWeight.toFixed(2)} lbs`;
 });
 
 // end of the creation of a radom number of passengers and their weight
