@@ -58,7 +58,7 @@ document.getElementById('Outbound-passengers-button').addEventListener('click', 
   // Generate random weight for passengers within cargo hold limit
   let totalPassengerWeight = 0;
   for (let i = 0; i < numPassengers; i++) {
-    const passengerWeight = math.floor(Math.random() * 250); // Max weight per passenger
+    const passengerWeight = Math.random() * 250; // Max weight per passenger
     if (totalPassengerWeight + passengerWeight <= z) {
       totalPassengerWeight += passengerWeight;
     } else {
@@ -67,7 +67,7 @@ document.getElementById('Outbound-passengers-button').addEventListener('click', 
   }
 
   // Update input field with generated passengers and their weight
-  document.getElementById('Outbound-passengers').value = `${numPassengers} passengers, Total Weight: ${totalPassengerWeight.toFixed(2)} lbs`;
+  document.getElementById('Outbound-passengers').value = `${numPassengers} passengers, Total Weight: ${totalPassengerWeight.toFixed(0)} lbs`;
   });
 
 // end of the creation of a radom number of passengers and their weight
@@ -83,7 +83,7 @@ document.getElementById('Arrival-passengers-button').addEventListener('click', f
   // Generate random weight for passengers within cargo hold limit
   let totalPassengerWeight = 0;
   for (let i = 0; i < numPassengers; i++) {
-    const passengerWeight = math.floor(Math.random() * 250); // Max weight per passenger
+    const passengerWeight = Math.random() * 250; // Max weight per passenger
     if (totalPassengerWeight + passengerWeight <= z) {
       totalPassengerWeight += passengerWeight;
     } else {
@@ -92,7 +92,7 @@ document.getElementById('Arrival-passengers-button').addEventListener('click', f
   }
 
   // Update input field with generated passengers and their weight
-  document.getElementById('Arrival-passengers').value = `${numPassengers} passengers, Total Weight: ${totalPassengerWeight.toFixed(2)} lbs`;
+  document.getElementById('Arrival-passengers').value = `${numPassengers} passengers, Total Weight: ${totalPassengerWeight.toFixed(0)} lbs`;
 });
 
 
@@ -111,7 +111,7 @@ document.getElementById('Outbound-cargo-button').addEventListener('click', funct
   const outboundCargoWeight = y - (x + passengersWeight);
 
   // Update input field with generated cargo weight
-  document.getElementById('Outbound-cargo').value = `${outboundCargoWeight.toFixed(2)} lbs`;
+  document.getElementById('Outbound-cargo').value = `${outboundCargoWeight.toFixed(0)} lbs`;
   });
 
 // end of the creation of a radom number of passengers and their weight
@@ -129,7 +129,7 @@ document.getElementById('Arrival-cargo-button').addEventListener('click', functi
   const ArrivalCargoWeight = y - (x + passengersWeight);
 
   // Update input field with generated cargo weight
-  document.getElementById('Arrival-cargo').value = `${ArrivalCargoWeight.toFixed(2)} lbs`;
+  document.getElementById('Arrival-cargo').value = `${ArrivalCargoWeight.toFixed(0)} lbs`;
 });
 
 // end of the creation of a radom number of passengers and their weight
