@@ -58,7 +58,7 @@ document.getElementById('Outbound-passengers-button').addEventListener('click', 
   // Generate random weight for passengers within cargo hold limit
   let totalPassengerWeight = 0;
   for (let i = 0; i < numPassengers; i++) {
-    const passengerWeight = Math.random() * 250; // Max weight per passenger
+    const passengerWeight = math.floor(Math.random() * 250); // Max weight per passenger
     if (totalPassengerWeight + passengerWeight <= z) {
       totalPassengerWeight += passengerWeight;
     } else {
@@ -83,7 +83,7 @@ document.getElementById('Arrival-passengers-button').addEventListener('click', f
   // Generate random weight for passengers within cargo hold limit
   let totalPassengerWeight = 0;
   for (let i = 0; i < numPassengers; i++) {
-    const passengerWeight = Math.random() * 250; // Max weight per passenger
+    const passengerWeight = math.floor(Math.random() * 250); // Max weight per passenger
     if (totalPassengerWeight + passengerWeight <= z) {
       totalPassengerWeight += passengerWeight;
     } else {
